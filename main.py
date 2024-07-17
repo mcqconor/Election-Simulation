@@ -8,7 +8,7 @@ st.markdown("## By Conor McQuiston (alpha 0.1)")
 st.markdown('This app will let you simulate a series of elections in your very own country where citizens vote for parties based on important issues. \
             This will let you see how many viable parties your country will end up with based on its parties actions and its electoral system.')
 
-st.markdown('My [Github](https://github.com/mcqconor/Election-Simulator), [LinkedIn](https://www.linkedin.com/in/conor-mcquiston-b6a8761a3), [Portfolio](https://mcqconor.github.io/), [Twitter](https://x.com/conormcq5), and [Substack](https://conormcquiston.substack.com/)')
+st.markdown('My [Github](https://github.com/mcqconor/Election-Simulation), [LinkedIn](https://www.linkedin.com/in/conor-mcquiston-b6a8761a3), [Portfolio](https://mcqconor.github.io/), [Twitter](https://x.com/conormcq5), and [Substack](https://conormcquiston.substack.com/)')
 
 country_name = st.text_input(label='First, what is your country called?')
 
