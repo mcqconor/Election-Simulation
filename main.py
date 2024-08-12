@@ -4,7 +4,7 @@ from simulation_helper_functions import random_party_names
 from generate_plots import *
 
 st.markdown("# Election Simulator-tron 9000")
-st.markdown("## By Conor McQuiston (alpha 0.1)")
+st.markdown("## By Conor McQuiston (alpha 0.2)")
 st.markdown('This app will let you simulate a series of elections in your very own country where citizens vote for parties based on important issues. \
             This will let you see how many viable parties your country will end up with based on its parties actions and its electoral system.')
 
