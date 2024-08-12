@@ -43,6 +43,12 @@ with st.form(key='Input-Form'):
             index=2
             )
         
+        voter_positions = st.radio(
+            label='How are the voters distributed about the important issues?',
+            options=['Random','Centrist','Polarized'],
+            index=2
+        )
+        
     with col2:
         randomness = st.radio(
             label='How much do the parties randomly move?',
@@ -77,7 +83,7 @@ party_names = random_party_names(party_input)
 issues = select_issues()
 
 party_df, final_voter_df, initial_voter_df = run_n_elections(party_names, voter_input, election_input, state_input, party_movement,
-                     min_share, min_seats, randomness)
+                     min_share, min_seats, randomness, voter_positions)
 
 share_plot = create_voteshare_time_plot(party_df, country_name)
 seats_plot = create_seats_time_plot(party_df, state_input, country_name)

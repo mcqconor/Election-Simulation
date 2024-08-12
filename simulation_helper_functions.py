@@ -2,6 +2,58 @@ import random
 from scipy.spatial.distance import cdist
 import numpy as np
 import random
+import math
+
+def create_voter_positions(distribution: str, n_voters: int) -> np.array:
+
+    if distribution == 'Random':
+        return np.random.uniform(low=-1,high=1,size=(n_voters, 2))
+    
+    elif distribution == 'Centrist':
+        
+        normal_dist = np.random.normal(loc=0, scale=0.25, size=(n_voters, 2))
+
+        normal_dist[normal_dist > 1] = 1
+        normal_dist[normal_dist < -1] = -1
+
+        return normal_dist
+    
+    elif distribution == 'Polarized':
+        
+        left_positions = np.random.normal(loc=-0.75, scale=0.25, size=(math.ceil(n_voters/2), 2))
+        right_positions = np.random.normal(loc=0.75, scale=0.25, size=(math.ceil(n_voters/2), 2))
+
+        bimodal = np.vstack((left_positions, right_positions))
+
+        bimodal[bimodal > 1] = 1
+        bimodal[bimodal < -1] = -1
+
+        return bimodal
+        
+    else:
+        return 0
+
+def get_party_movement(input_string: str) -> float:
+
+    if input_string == 'A lot':
+        return 0.5
+    elif input_string == 'Some':
+        return 0.2
+    elif input_string == 'A Little':
+        return 0.1
+    else:
+        return 0
+
+def get_noise(input_string: str) -> float:
+
+    if input_string == 'A lot':
+        return 0.25
+    elif input_string == 'Some':
+        return 0.05
+    elif input == 'A Little':
+        return 0.01
+    else:
+        return 0
 
 #Generates random colors for the parties so the plotting is prettier later
 def random_color():
@@ -74,7 +126,8 @@ def select_issues() -> list:
         'School Prayer',
         'Immigration Policy',
         'Environmental Policy',
-        'Shot Clock Length'
+        'Shot Clock Length',
+        'Railroad Control'
     ]
 
     return random.sample(potential_issues,2)
