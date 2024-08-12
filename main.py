@@ -14,11 +14,11 @@ country_name = st.text_input(label='First, what is your country called?')
 
 st.markdown(
     'Here are the immutable rules of the simulation as it is currently set up: \
-    \n1. Parties and Voters are placed on a 2D issue space according to a uniform distribution\
+    \n1. Parties and Voters are placed on a 2D issue space according to a distribution you choose\
     \n2. Voters will **always** vote for the party closest to them by Euclidean distance\
     \n3. Parties change their positions by some combination of random noise and moving towards their average Voter\
     \n4. If a Party gets the most votes in a given state, they win a Seat in the National Legislature\
-    \n5. Parties die if they get below the minimum National Legislature seats AND the minimum National Vote Share\
+    \n5. Parties die if they get below the minimum National Legislature seats OR the minimum National Vote Share\
     \n6. Party Names and the Important Issues are randomly assigned'
 )
 
